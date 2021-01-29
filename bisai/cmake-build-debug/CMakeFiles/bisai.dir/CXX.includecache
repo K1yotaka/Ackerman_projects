@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/ackerman/CLionProjects/bisai/main.cpp
+cstdio
+-
+cstdlib
+-
+string
+-
+iostream
+-
+bitset
+-
+fstream
+-
+ctime
+-
+typeinfo
+-
+iomanip
+-
+cmath
+-
+set
+-
+algorithm
+-
+vector
+-
+map
+-
+
