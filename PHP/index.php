@@ -1,12 +1,13 @@
 <?php
 
-include("./config.php");
-$servername = $db_host;
-$dbname = $db_name;
-$username = $db_user;
-$password = $db_pass;
+include_once "config.php";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$config = config();
+$conn = new mysqli(
+    $config['db_host'],
+    $config['db_user'],
+    $config['db_pass'],
+    $config['db_name']);
 
 if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
