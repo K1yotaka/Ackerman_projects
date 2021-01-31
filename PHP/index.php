@@ -1,12 +1,14 @@
 <?php
-$servername = "172.17.0.2";
-$username = "ackerman";
-$password = "123456";
-$dbname = "ackerman";
-$conn = new mysqli($servername,$username,$password,$dbname);
 
-if ($conn->connect_error)
-{
+include("./config.php");
+$servername = $db_host;
+$dbname = $db_name;
+$username = $db_user;
+$password = $db_pass;
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 }
 
@@ -36,17 +38,17 @@ if ($conn->connect_error)
 
 // 检测插入多条数据是否成功
 
-//$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-//VALUES ('John', 'Doe', 'john@example.com');";
-//$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
-//VALUES ('Mary', 'Moe', 'mary@example.com');";
-//$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
-//VALUES ('Julie', 'Dooley', 'julie@example.com')";
+$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('John', 'Doe', 'john@example.com');";
+$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('Mary', 'Moe', 'mary@example.com');";
+$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('Julie', 'Dooley', 'julie@example.com')";
 
-//if ($conn->multi_query($sql) == TRUE)
-//    echo "Succesful!";
-//else
-//    echo "Error: " . $sql . "<br>" . $conn->error;
+if ($conn->multi_query($sql) == TRUE)
+    echo "Succesful!";
+else
+    echo "Error: " . $sql . "<br>" . $conn->error;
 
 
 $conn->close();
